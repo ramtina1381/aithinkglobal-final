@@ -15,7 +15,7 @@ const corsOptions = {
     const allowedOrigins = [
       "http://localhost:3000",
       "https://localhost:3000",
-      "https://aithinkglobal.vercel.app",
+      "https://aithinkglobal-final.vercel.app",
       "https://aithinkglobal.com",
       "https://www.aithinkglobal.com"
     ];
