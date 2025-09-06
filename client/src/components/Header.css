@@ -1,0 +1,235 @@
+/* Reset some base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.header.scrolled {
+  background-color: #f8f8f8;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  order: 1;
+}
+
+.navmenu {
+  order: 2;
+}
+
+.logo img {
+  height: 45px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav  {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.main-nav li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.main-nav li a:hover,
+.main-nav li a.active {
+  color: #007bff;
+}
+
+/* Mobile nav toggle icon */
+.mobile-nav-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 16px;
+}
+
+/* Profile button Styling */
+.profile-menu {
+  position: relative;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 0;
+}
+
+.profile-btn:hover {
+  color: #007bff;
+}
+
+.dropdown {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: white;
+  border-radius: 5px;
+  padding: 0;
+  list-style: none;
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: block;
+  flex-direction: column;
+}
+
+
+.dropdown li a,
+.dropdown li button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.dropdown li a:hover,
+.dropdown li button:hover {
+  background-color: #f0f0f0;
+}
+
+.logout-btn {
+  color: red;
+  font-weight: bold;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navmenu {
+    position: relative;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    gap: 0;
+    width: 200px;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-bottom-left-radius: 8px;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .navmenu.open .main-nav {
+    display: flex;
+  }
+
+  .main-nav li {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .main-nav li a,
+  .main-nav li .profile-btn {
+    padding: 15px 20px;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .main-nav li a:hover,
+  .main-nav li .profile-btn:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+  }
+
+  .main-nav li .profile-menu {
+    width: 100%;
+  }
+
+  .main-nav li .dropdown {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: #f8f9fa;
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .main-nav li .dropdown li {
+    border-bottom: none;
+  }
+
+  .main-nav li .dropdown li a,
+  .main-nav li .dropdown li button {
+    padding: 10px 30px;
+    font-size: 14px;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    color: #333;
+    z-index: 1001;
+    order: 3;
+    margin-left: auto;
+  }
+
+  .mobile-nav-toggle:hover {
+    color: #007bff;
+  }
+
+  .header-container {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .logo {
+    order: 1;
+    margin-right: auto;
+  }
+
+  .navmenu {
+    order: 2;
+  }
+}
