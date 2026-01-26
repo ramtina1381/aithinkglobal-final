@@ -2,33 +2,29 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth } from "./firebase";
+import { auth, db } from "./firebase";
+import { doc, getDoc } from 'firebase/firestore';
+import { useAuth } from '../context/ContextProvider';
 
 export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
-  const [user, setUser] = useState(null);
   const location = useLocation(); // Hook to get current URL path
   const headerRef = useRef(null); // Ref to access the header DOM element
   const mobileNavToggleBtnRef = useRef(null); // Ref for the mobile nav toggle button
-  const [userRole, setUserRole] = useState('user');
   const navigate = useNavigate();
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  
+  // Use the auth context instead of local state
+  const { user, role, loading } = useAuth();
 
-    // 🔹 Listen for authentication state changes
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => unsubscribe();
-  }, []);
+  // Remove the old auth listener since we're using context now
 
 const handleProfileClick = () => {
   setProfileMenuOpen(!profileMenuOpen);
 };
 const handleLogout = async () => {
     await signOut(auth);
-    setUserRole(null);
     alert("You have been logged out.")
     navigate("/")
   };
@@ -157,17 +153,51 @@ return (
 
         <nav className={`navmenu ${mobileNavOpen ? 'open' : ''}`}>
           <ul className='main-nav'>
-            <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link></li>
-            <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
-            {user ? (
+            {/* Show different navigation based on user role and current location */}
+            {!user ? (
+              // Guest navigation
               <>
+                <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link></li>
+                <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
+                <li><Link to="/careers" className={location.pathname === '/careers' ? 'active' : ''}>Careers</Link></li>
+                <li><Link to="/auth?mode=login" className={location.pathname === '/auth' ? 'active' : ''}>Login</Link></li>
+              </>
+            ) : role === 'admin' ? (
+              // Admin navigation
+              <>
+                <li><Link to="/admin" className={location.pathname === '/admin' ? 'active' : ''}>Dashboard</Link></li>
+                <li><Link to="/admin/homepage" className={location.pathname === '/admin/homepage' ? 'active' : ''}>Homepage</Link></li>
+                <li><Link to="/admin/contact" className={location.pathname === '/admin/contact' ? 'active' : ''}>Contact</Link></li>
+                <li><Link to="/admin/careers" className={location.pathname === '/admin/careers' ? 'active' : ''}>Careers</Link></li>
+                <li className="profile-menu">
+                  <button onClick={handleProfileClick} className="profile-btn">
+                    Admin {profileMenuOpen ? "▲" : "▼"}
+                  </button>
+                  {profileMenuOpen && (
+                    <ul className="dropdown">
+                      <li><Link to="/" onClick={closeMobileNav}>Public Site</Link></li>
+                      <li>
+                        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+                      </li>
+                    </ul>
+                  )}
+                </li>
+              </>
+            ) : role === 'user' ? (
+              // User navigation
+              <>
+                <li><Link to="/user" className={location.pathname === '/user' ? 'active' : ''}>Dashboard</Link></li>
+                <li><Link to="/user/homepage" className={location.pathname === '/user/homepage' ? 'active' : ''}>Homepage</Link></li>
+                <li><Link to="/user/contact" className={location.pathname === '/user/contact' ? 'active' : ''}>Contact</Link></li>
+                <li><Link to="/user/careers" className={location.pathname === '/user/careers' ? 'active' : ''}>Careers</Link></li>
                 <li className="profile-menu">
                   <button onClick={handleProfileClick} className="profile-btn">
                     Profile {profileMenuOpen ? "▲" : "▼"}
                   </button>
                   {profileMenuOpen && (
                     <ul className="dropdown">
-                      <li><Link to="/profile">Setting</Link></li>
+                      <li><Link to="/user/profile">Settings</Link></li>
+                      <li><Link to="/" onClick={closeMobileNav}>Public Site</Link></li>
                       <li>
                         <button className="logout-btn" onClick={handleLogout}>Logout</button>
                       </li>
@@ -176,7 +206,25 @@ return (
                 </li>
               </>
             ) : (
-              <li><Link to="/auth?mode=login" className={location.pathname === '/auth' ? 'active' : ''}>Login</Link></li>
+              // Fallback for users without role
+              <>
+                <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link></li>
+                <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
+                <li><Link to="/careers" className={location.pathname === '/careers' ? 'active' : ''}>Careers</Link></li>
+                <li className="profile-menu">
+                  <button onClick={handleProfileClick} className="profile-btn">
+                    User {profileMenuOpen ? "▲" : "▼"}
+                  </button>
+                  {profileMenuOpen && (
+                    <ul className="dropdown">
+                      <li><Link to="/profile">Settings</Link></li>
+                      <li>
+                        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+                      </li>
+                    </ul>
+                  )}
+                </li>
+              </>
             )}
           </ul>
         </nav>

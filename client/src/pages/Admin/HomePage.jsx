@@ -1,18 +1,16 @@
 import React from "react";
-import "./HomePage.css";
+import "../HomePage/HomePage.css";
 import { FaLinkedin } from 'react-icons/fa';
-import { Outlet, Link } from "react-router-dom";
-import { useAuth } from "../../context/ContextProvider";
 
 function Hero() {
   return (
     <section className="hero">
       <div className="hero-text">
-        <h1>Intelligent Solutions</h1>
+        <h1>Admin: Intelligent Solutions</h1>
         <h1>Smarter Business</h1>
-        <a href="#contact" className="btn-get-started">
-          Get Started
-        </a>
+        <div style={{ marginTop: '1rem', padding: '0.5rem', backgroundColor: '#fff3cd', border: '1px solid #ffeaa7', borderRadius: '4px' }}>
+          <small>Admin View - You can edit this content</small>
+        </div>
       </div>
       <div className="hero-image"></div>
     </section>
@@ -30,13 +28,16 @@ function Mission() {
             </div>
             <h4>
               <a href="/" className="title-link">
-                Reshaping Intelligence Around Us
+                Admin: Reshaping Intelligence Around Us
               </a>
             </h4>
             <p className="description">
-              Our mission is to thoughtfully build AI powered software and
+              [ADMIN EDITABLE] Our mission is to thoughtfully build AI powered software and
               solutions that advance industries and enrich lives with precision and purpose.
             </p>
+            <div style={{ marginTop: '1rem', padding: '0.5rem', backgroundColor: '#d1ecf1', border: '1px solid #bee5eb', borderRadius: '4px' }}>
+              <small>Admin: Click to edit this mission statement</small>
+            </div>
           </div>
         </div>
         <img src="/assets/img/2.png" className="mission-image" alt="Mission" />
@@ -45,11 +46,10 @@ function Mission() {
   );
 }
 
-
 function Services() {
   const services = [
     "Cloud and Infrastructure",
-    "App development and Quality Engineering",
+    "App development and Quality Engineering", 
     "Data Automation and AI",
     "Consulting Services",
   ];
@@ -57,7 +57,10 @@ function Services() {
   return (
     <section id="services" className="services-section">
       <div className="services-container">
-        <h2 className="services-title">Our Services</h2>
+        <h2 className="services-title">Admin: Our Services</h2>
+        <div style={{ marginBottom: '1rem', padding: '0.5rem', backgroundColor: '#f8d7da', border: '1px solid #f5c6cb', borderRadius: '4px' }}>
+          <small>Admin: Manage services list</small>
+        </div>
         <div className="services-grid">
           {services.map((service, idx) => (
             <div key={idx} className={`service-box service-box-${idx}`}>
@@ -74,7 +77,10 @@ function Leadership() {
   return (
     <section id="team" className="leadership-section">
       <div className="section-title">
-        <h2>Our Leadership</h2>
+        <h2>Admin: Our Leadership</h2>
+        <div style={{ marginBottom: '1rem', padding: '0.5rem', backgroundColor: '#d4edda', border: '1px solid #c3e6cb', borderRadius: '4px' }}>
+          <small>Admin: Edit team member information</small>
+        </div>
       </div>
       <div className="leadership-container">
         <div className="leader-card">
@@ -85,7 +91,7 @@ function Leadership() {
               <a href="https://www.linkedin.com/in/zohrehsanaei/"><FaLinkedin size={24} color="#0077B5" /></a>
             </div>
             <p>
-              Zohreh Sanaei is a visionary leader in AI and data science, dedicated to transforming complex challenges into seamless, data-driven solutions. With a PhD in Computer Science and over 12 years of experience, she specializes in driving AI innovation that enhances business performance and customer experiences.
+              [ADMIN EDITABLE] Zohreh Sanaei is a visionary leader in AI and data science, dedicated to transforming complex challenges into seamless, data-driven solutions. With a PhD in Computer Science and over 12 years of experience, she specializes in driving AI innovation that enhances business performance and customer experiences.
             </p>
             <p>
               As Chief Experience Officer at AIThink LTD, Zohreh focuses on bridging the gap between AI technology and real-world applications. She simplifies complex AI/ML models into actionable strategies, ensuring businesses thrive with AI. Her leadership fosters innovation and guides teams to deliver measurable success.
@@ -104,7 +110,7 @@ function Leadership() {
               <a href="https://www.linkedin.com/in/saeidabolfazli/"><FaLinkedin size={24} color="#0077B5" /></a>
             </div>
             <p>
-              Saeid is an AI strategist, educator, and innovator dedicated to making AI practical and transformative for businesses. He leverages deep expertise in AI/ML, data science, and technology leadership to help organizations integrate AI solutions that drive efficiency and growth.
+              [ADMIN EDITABLE] Saeid is an AI strategist, educator, and innovator dedicated to making AI practical and transformative for businesses. He leverages deep expertise in AI/ML, data science, and technology leadership to help organizations integrate AI solutions that drive efficiency and growth.
             </p>
             <p>
               He has been teaching AI and machine learning at the University of Toronto and the Vector Institute for AI, shaping the next generation of AI talent. His work bridges cutting-edge research with real-world applications to ensure AI is not just innovative but also ethical and impactful.
@@ -123,7 +129,10 @@ function Locations() {
   return (
     <section id="Locations" className="locations section">
       <div className="container section-title" data-aos="fade-up">
-        <h2 className="locations-title">Locations</h2>
+        <h2 className="locations-title">Admin: Locations</h2>
+        <div style={{ marginBottom: '1rem', padding: '0.5rem', backgroundColor: '#fff3cd', border: '1px solid #ffeaa7', borderRadius: '4px' }}>
+          <small>Admin: Manage office locations</small>
+        </div>
 
         <div className="locations-container">
           <img
@@ -159,63 +168,15 @@ function Locations() {
   );
 }
 
-
-
-
-function RoleBasedBanner() {
-  const { user, role, loading } = useAuth();
-
-  if (loading) return null;
-
-  if (user && role === 'admin') {
-    return (
-      <div style={{ 
-        backgroundColor: '#dc3545', 
-        color: 'white', 
-        padding: '1rem', 
-        textAlign: 'center',
-        borderBottom: '2px solid #c82333'
-      }}>
-        <strong>Welcome Admin!</strong> You're viewing the public site. 
-        <Link to="/admin" style={{ color: 'white', marginLeft: '1rem', textDecoration: 'underline' }}>
-          Go to Admin Dashboard →
-        </Link>
-      </div>
-    );
-  }
-
-  if (user && role === 'user') {
-    return (
-      <div style={{ 
-        backgroundColor: '#1976d2', 
-        color: 'white', 
-        padding: '1rem', 
-        textAlign: 'center',
-        borderBottom: '2px solid #1565c0'
-      }}>
-        <strong>Welcome back!</strong> You're viewing the public site. 
-        <Link to="/user" style={{ color: 'white', marginLeft: '1rem', textDecoration: 'underline' }}>
-          Go to Your Dashboard →
-        </Link>
-      </div>
-    );
-  }
-
-  return null;
-}
-
-export default function HomePage() {
+export default function AdminHomePage() {
   return (
     <>
-      <RoleBasedBanner />
       <main>
         <Hero />
         <Mission />
         <Services />
-        {/* <BusinessTransformation /> */}
         <Leadership />
         <Locations />
-        <Outlet />
       </main>
     </>
   );

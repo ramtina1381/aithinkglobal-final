@@ -1,33 +1,22 @@
 import React, { useState, useEffect } from "react";
-import "./Careers.css";
+import "../Careers/Careers.css";
 import { useNavigate } from "react-router-dom";
-import { jobs } from "./jobs";
-const jobData = [
-  { title: "Wordpress Developer", category: "Engineering", experience: "2 Years", deadline: "2025-05-08" },
-  { title: "Javascript Developer", category: "Engineering", experience: "1 Year", deadline: "2025-06-08" },
-  { title: "Apps Developer", category: "Engineering", experience: "3 Years", deadline: "2021-06-08" },
-  { title: "iOS Developer", category: "Engineering", experience: "2 Years", deadline: "2021-06-08" },
-  { title: "Node JS Developer", category: "Engineering", experience: "3 Years", deadline: "2021-07-08" },
-  { title: "SEO Specialist", category: "Digital Marketing", experience: "2 Years", deadline: "2025-09-01" },
-  { title: "Customer Support Rep", category: "Support", experience: "1 Year", deadline: "2025-09-15" },
-];
+import { jobs } from "../Careers/jobs";
 
-export default function CareersPage() {
+export default function UserCareers() {
   const [search, setSearch] = useState("");
-const [category, setCategory] = useState("All");
+  const [category, setCategory] = useState("All");
   
-// SCROLL TO THE TOP!
-useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-const navigate = useNavigate();
-const filteredJobs = jobs.filter(job => {
-  const matchesSearch = job.title.toLowerCase().includes(search.toLowerCase());
-  const matchesCategory = category === "All" || job.category === category;
-  return matchesSearch && matchesCategory;
-});
-
+  const navigate = useNavigate();
+  const filteredJobs = jobs.filter(job => {
+    const matchesSearch = job.title.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory = category === "All" || job.category === category;
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <div className="careers-page">
@@ -39,6 +28,9 @@ const filteredJobs = jobs.filter(job => {
             Be part of a forward-thinking team where innovation, teamwork, and
             growth matter. Explore opportunities and shape the future with us.
           </p>
+          <div style={{ marginBottom: '1rem', padding: '0.5rem', backgroundColor: '#e3f2fd', border: '1px solid #bbdefb', borderRadius: '4px' }}>
+            <small>User Portal - Browse and apply for positions</small>
+          </div>
           <div className="careers-buttons">
             <button className="btn-primary"><a href="#careers">Join the Team</a></button>
             <button className="btn-outline">Contact</button>
@@ -94,37 +86,37 @@ const filteredJobs = jobs.filter(job => {
           <button className="btn-primary">Find Jobs</button>
         </div>
 
-<div className="job-list">
-  {filteredJobs.map((job, index) => (
-    <div key={index} className="job-card">
-      <h3 className="job-title">{job.title}</h3>
-      
-      <div className="job-info">
-        <div className="job-field">
-          <span className="label">Category</span>
-          <span className="value">{job.category}</span>
-        </div>
+        <div className="job-list">
+          {filteredJobs.map((job, index) => (
+            <div key={index} className="job-card">
+              <h3 className="job-title">{job.title}</h3>
+              
+              <div className="job-info">
+                <div className="job-field">
+                  <span className="label">Category</span>
+                  <span className="value">{job.category}</span>
+                </div>
 
-        <div className="job-field">
-          <span className="label">Experience</span>
-          <span className="value">{job.experience}</span>
-        </div>
+                <div className="job-field">
+                  <span className="label">Experience</span>
+                  <span className="value">{job.experience}</span>
+                </div>
 
-        <div className="job-field">
-          <span className="label">Deadline</span>
-          <span className="value">{job.deadline}</span>
+                <div className="job-field">
+                  <span className="label">Deadline</span>
+                  <span className="value">{job.deadline}</span>
+                </div>
+              </div>
+              <button
+                className="apply-btn"
+                onClick={() => navigate(`/user/careers/${job.slug || job.title.toLowerCase().replace(/\s+/g, "-")}`)}
+                aria-label={`View ${job.title} details`}
+              >
+                Apply Now →
+              </button>
+            </div>
+          ))}
         </div>
-      </div>
-      <button
-        className="apply-btn"
-        onClick={() => navigate(`/careers/${job.slug || job.title.toLowerCase().replace(/\s+/g, "-")}`)}
-        aria-label={`View ${job.title} details`}
-      >
-        →
-      </button>
-    </div>
-  ))}
-</div>
       </section>
     </div>
   );

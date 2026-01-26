@@ -1,8 +1,6 @@
 import React from "react";
-import "./HomePage.css";
+import "../HomePage/HomePage.css";
 import { FaLinkedin } from 'react-icons/fa';
-import { Outlet, Link } from "react-router-dom";
-import { useAuth } from "../../context/ContextProvider";
 
 function Hero() {
   return (
@@ -10,9 +8,9 @@ function Hero() {
       <div className="hero-text">
         <h1>Intelligent Solutions</h1>
         <h1>Smarter Business</h1>
-        <a href="#contact" className="btn-get-started">
-          Get Started
-        </a>
+        <div style={{ marginTop: '1rem', padding: '0.5rem', backgroundColor: '#e3f2fd', border: '1px solid #bbdefb', borderRadius: '4px' }}>
+          <small>User Portal - Welcome back!</small>
+        </div>
       </div>
       <div className="hero-image"></div>
     </section>
@@ -45,11 +43,10 @@ function Mission() {
   );
 }
 
-
 function Services() {
   const services = [
     "Cloud and Infrastructure",
-    "App development and Quality Engineering",
+    "App development and Quality Engineering", 
     "Data Automation and AI",
     "Consulting Services",
   ];
@@ -159,63 +156,15 @@ function Locations() {
   );
 }
 
-
-
-
-function RoleBasedBanner() {
-  const { user, role, loading } = useAuth();
-
-  if (loading) return null;
-
-  if (user && role === 'admin') {
-    return (
-      <div style={{ 
-        backgroundColor: '#dc3545', 
-        color: 'white', 
-        padding: '1rem', 
-        textAlign: 'center',
-        borderBottom: '2px solid #c82333'
-      }}>
-        <strong>Welcome Admin!</strong> You're viewing the public site. 
-        <Link to="/admin" style={{ color: 'white', marginLeft: '1rem', textDecoration: 'underline' }}>
-          Go to Admin Dashboard →
-        </Link>
-      </div>
-    );
-  }
-
-  if (user && role === 'user') {
-    return (
-      <div style={{ 
-        backgroundColor: '#1976d2', 
-        color: 'white', 
-        padding: '1rem', 
-        textAlign: 'center',
-        borderBottom: '2px solid #1565c0'
-      }}>
-        <strong>Welcome back!</strong> You're viewing the public site. 
-        <Link to="/user" style={{ color: 'white', marginLeft: '1rem', textDecoration: 'underline' }}>
-          Go to Your Dashboard →
-        </Link>
-      </div>
-    );
-  }
-
-  return null;
-}
-
-export default function HomePage() {
+export default function UserHomePage() {
   return (
     <>
-      <RoleBasedBanner />
       <main>
         <Hero />
         <Mission />
         <Services />
-        {/* <BusinessTransformation /> */}
         <Leadership />
         <Locations />
-        <Outlet />
       </main>
     </>
   );

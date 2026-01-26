@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import { auth, db } from "./firebase";
 import {
   createUserWithEmailAndPassword,
@@ -14,6 +14,7 @@ import "./Auth.css";
 
 export default function AuthForm() {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const isLogin = searchParams.get("mode") === "login";
 
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", password: "" });
@@ -92,8 +93,18 @@ useEffect(() => {
             if (userDoc.exists()) {
               const role = userDoc.data().role;
               setUserRole(role);  // <-- Save role in state for access control
+              
+              // Redirect based on role
+              if (role === 'admin') {
+                navigate('/admin');
+              } else if (role === 'user') {
+                navigate('/user');
+              } else {
+                navigate('/dashboard');
+              }
             } else {
               setUserRole(null);  // Or handle missing user doc
+              navigate('/dashboard');
             }
 
         setMessage("Logged in successfully!");

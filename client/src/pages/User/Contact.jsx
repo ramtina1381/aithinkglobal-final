@@ -1,9 +1,8 @@
 import React from "react";
-import './Contact.css'
+import '../Contact/Contact.css'
 
-export default function Contact() {
-
-    const showModal = () => {
+export default function UserContact() {
+  const showModal = () => {
     const modal = document.getElementById("thankYouModal");
     if (modal) modal.style.display = "flex";
   };
@@ -13,8 +12,7 @@ export default function Contact() {
     if (modal) modal.style.display = "none";
   };
 
-//Just a test
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = {
@@ -31,7 +29,7 @@ const handleSubmit = async (e) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData)
-            });
+      });
 
       if (response.ok) {
         showModal();
@@ -45,12 +43,14 @@ const handleSubmit = async (e) => {
     }
   };
 
-
   return (
     <section id="contact" className="contact section">
       <div className="container section-title">
-        <h2 className="contact-title">Contact</h2>
+        <h2 className="contact-title">Contact Us</h2>
         <p>Drop us a line! We love to hear from you.</p>
+        <div style={{ marginBottom: '1rem', padding: '0.5rem', backgroundColor: '#e3f2fd', border: '1px solid #bbdefb', borderRadius: '4px' }}>
+          <small>User Portal - Send us a message</small>
+        </div>
       </div>
 
       <div className="container">
@@ -143,7 +143,7 @@ const handleSubmit = async (e) => {
                 Send Message
               </button>
             </form>
-                    </div>
+          </div>
         </div>
       </div>
 
