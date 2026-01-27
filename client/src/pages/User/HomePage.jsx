@@ -1,5 +1,5 @@
 import React from "react";
-import "../HomePage/HomePage.css";
+// import "../HomePage/HomePage.css";
 import { FaLinkedin } from 'react-icons/fa';
 
 function Hero() {
@@ -8,7 +8,7 @@ function Hero() {
       <div className="hero-text">
         <h1>Intelligent Solutions</h1>
         <h1>Smarter Business</h1>
-        <div style={{ marginTop: '1rem', padding: '0.5rem', backgroundColor: '#e3f2fd', border: '1px solid #bbdefb', borderRadius: '4px' }}>
+        <div style={{ marginTop: '1rem', padding: '0.5rem', border: '1px solid #bbdefb', borderRadius: '4px' }}>
           <small>User Portal - Welcome back!</small>
         </div>
       </div>
