@@ -1,9 +1,8 @@
 import React from "react";
-import './Contact.css'
+import "./Contact.css";
 
 export default function Contact() {
-
-    const showModal = () => {
+  const showModal = () => {
     const modal = document.getElementById("thankYouModal");
     if (modal) modal.style.display = "flex";
   };
@@ -13,8 +12,9 @@ export default function Contact() {
     if (modal) modal.style.display = "none";
   };
 
-//Just a test
-const handleSubmit = async (e) => {
+  //Just a test
+  // Adding this line to update the code
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = {
@@ -30,8 +30,8 @@ const handleSubmit = async (e) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
-            });
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
         showModal();
@@ -44,7 +44,6 @@ const handleSubmit = async (e) => {
       alert("An error occurred. Please try again.");
     }
   };
-
 
   return (
     <section id="contact" className="contact section">
@@ -143,7 +142,7 @@ const handleSubmit = async (e) => {
                 Send Message
               </button>
             </form>
-                    </div>
+          </div>
         </div>
       </div>
 
@@ -162,7 +161,9 @@ const handleSubmit = async (e) => {
           </button>
           <h2>Thank You!</h2>
           <div className="modal-content">
-            <p>We appreciate your message. Our team will get back to you shortly.</p>
+            <p>
+              We appreciate your message. Our team will get back to you shortly.
+            </p>
           </div>
         </div>
       </div>
