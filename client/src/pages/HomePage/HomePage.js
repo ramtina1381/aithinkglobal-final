@@ -3,6 +3,7 @@ import "./HomePage.css";
 import { FaLinkedin } from 'react-icons/fa';
 import { Outlet, Link } from "react-router-dom";
 import { useAuth } from "../../context/ContextProvider";
+// import heroImg from './assets/img/1.png'; 
 
 function Hero() {
   return (
@@ -14,7 +15,12 @@ function Hero() {
           Get Started
         </a>
       </div>
-      <div className="hero-image"></div>
+      <div className="hero-image" style={{ 
+          backgroundImage: "url('/assets/img/1.png')",
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center'
+        }}></div>
     </section>
   );
 }
