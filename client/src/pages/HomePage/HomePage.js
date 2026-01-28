@@ -15,12 +15,7 @@ function Hero() {
           Get Started
         </a>
       </div>
-      <div className="hero-image" style={{ 
-          backgroundImage: "url('/assets/img/1.png')",
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center'
-        }}></div>
+      <img className="hero-image" src="/assets/img/1.png" alt="Hero Image" />
     </section>
   );
 }

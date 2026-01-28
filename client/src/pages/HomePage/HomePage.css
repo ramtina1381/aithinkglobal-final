@@ -244,18 +244,18 @@
   background: #2e8c7f;
 }
 
-/* .hero-image {
+.hero-image {
   position: relative;
   top: 0;
   right: 0;
   width: 50%;
   height: auto;
-  aspect-ratio: 4 / 3;  background: url('/assets/img/1.png') no-repeat right center;
+  aspect-ratio: 4 / 3;  
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center right;
   z-index: 0;
-} */
+}
 
 
 /* Responsive Adjustments */
