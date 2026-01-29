@@ -880,27 +880,11 @@ h2 {
   text-align: center;
 }
 
-/* Example backgrounds */
-.service-box-0 {
-  background-image: url('http://localhost:3000/assets/img/cloud.png');
-}
-
-.service-box-1 {
-  background-image: url('http://localhost:3000/assets/img/app.png');
-}
-
-.service-box-2 {
-  background-image: url('http://localhost:3000/assets/img/data-automation.png');
-}
-
-.service-box-3 {
-  background-image: url('http://localhost:3000/assets/img/consulting.png');
-}
-
-.service-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
+/* Using relative paths from the public root */
+.service-box-0 { background-image: url('/assets/img/cloud.png'); }
+.service-box-1 { background-image: url('/assets/img/app.png'); }
+.service-box-2 { background-image: url('/assets/img/data-automation.png'); }
+.service-box-3 { background-image: url('/assets/img/consulting.png'); }
 
 
 /*--------------------------------------------------------------
