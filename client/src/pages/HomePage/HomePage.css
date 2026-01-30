@@ -12,13 +12,16 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Ubuntu",  sans-serif;
+  --default-font:
+    "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Ubuntu", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
+:root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #5f687b; /* Color for headings, subheadings and title throughout the website */
@@ -29,7 +32,7 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #5f687b;  /* The default color of the main navmenu links */
+  --nav-color: #5f687b; /* The default color of the main navmenu links */
   --nav-hover-color: #1795ab; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
@@ -65,7 +68,6 @@
   text-align: left;
 }
 
-
 .AI-Dev {
   bottom: 10px;
   right: 350px;
@@ -73,7 +75,6 @@
   width: 300px;
   text-align: left;
 }
-
 
 .Deploy {
   top: 100px;
@@ -89,31 +90,26 @@
   font-size: small;
   width: 300px;
   text-align: left;
-
 }
 
-.business-transformation-text{
-  font-family: 'Lato',sans-serif;
+.business-transformation-text {
+  font-family: "Lato", sans-serif;
   font-size: 12px;
   font-weight: 200;
-  color: #4A4A4A;
+  color: #4a4a4a;
   line-height: 1.6;
   max-width: 500px;
-
 }
-.business-transformation-header{
-
-  font-family: 'Lato', sans-serif; 
-  font-size: 16px; 
-  font-weight: 300; 
-  color: #2C3E50; 
+.business-transformation-header {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #2c3e50;
   margin-bottom: 20px;
   text-transform: uppercase;
-  
 }
 
 /* Block of Business Transformation  */
-
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 .map {
@@ -213,7 +209,6 @@
   width: 100%;
 }
 
-
 .hero-text {
   flex: 1;
   padding: clamp(1rem, 5vw, 3rem);
@@ -230,7 +225,7 @@
 
 .btn-get-started {
   display: inline-block;
-  background: #33A18F;
+  background: #33a18f;
   color: white;
   padding: 12px 30px;
   text-decoration: none;
@@ -250,13 +245,12 @@
   right: 0;
   width: 50%;
   height: auto;
-  aspect-ratio: 4 / 3;  
+  aspect-ratio: 4 / 3;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center right;
   z-index: 0;
 }
-
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -271,7 +265,6 @@
     padding-right: 1rem;
   }
 }
-
 
 .light-background {
   --background-color: #f9f9f9;
@@ -320,8 +313,9 @@ a:hover {
 }
 
 /* General Header Styling */
-h1, h2 {
-  font-family: 'Raleway', sans-serif; /* Use your preferred font */
+h1,
+h2 {
+  font-family: "Raleway", sans-serif; /* Use your preferred font */
   font-weight: 700; /* Make the headers bold */
   color: #1e3a5f; /* Set a consistent color */
   text-transform: uppercase; /* Optional: Make all headers uppercase */
@@ -408,14 +402,15 @@ h2 {
   height: auto;
 }
 
-
-
 /* Pulsating Play Button
 ------------------------------*/
 .pulsating-play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(var(--accent-color) 50%, color-mix(in srgb, var(--accent-color), transparent 75%) 52%);
+  background: radial-gradient(
+    var(--accent-color) 50%,
+    color-mix(in srgb, var(--accent-color), transparent 75%) 52%
+  );
   border-radius: 50%;
   display: block;
   position: relative;
@@ -553,8 +548,6 @@ h2 {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
-
-
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -562,7 +555,7 @@ h2 {
   width: 100%;
   min-height: 50vh;
   position: relative;
-  padding: 5px 0 5px 0 ;
+  padding: 5px 0 5px 0;
   display: flex;
   align-items: center;
 }
@@ -715,11 +708,6 @@ h2 {
   border-radius: 10px;
 }
 
-
-
-
-
-
 /*--------------------------------------------------------------
 # Featured Services Section
 --------------------------------------------------------------*/
@@ -869,7 +857,9 @@ h2 {
   border-radius: 12px;
   font-size: 18px;
   font-weight: 500;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -881,11 +871,19 @@ h2 {
 }
 
 /* Using relative paths from the public root */
-.service-box-0 { background-image: url('/assets/img/cloud.png'); }
-.service-box-1 { background-image: url('/assets/img/app.png'); }
-.service-box-2 { background-image: url('/assets/img/data-automation.png'); }
-.service-box-3 { background-image: url('/assets/img/consulting.png'); }
-
+/* Update these lines in your CSS */
+.service-box-0 {
+  background-image: url(/assets/img/cloud.png);
+}
+.service-box-1 {
+  background-image: url(/assets/img/app.png);
+}
+.service-box-2 {
+  background-image: url(/assets/img/data-automation.png);
+}
+.service-box-3 {
+  background-image: url(/assets/img/consulting.png);
+}
 
 /*--------------------------------------------------------------
 # Portfolio Section
@@ -1139,7 +1137,7 @@ h2 {
 .leadership-section {
   padding: 60px 20px;
   background-color: #f9f9f9;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .section-title {
@@ -1205,7 +1203,9 @@ h2 {
   right: 20px;
 }
 .social a svg {
-  transition: transform 0.3s ease, fill 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    fill 0.3s ease;
 }
 
 /* Hover effect */
@@ -1213,9 +1213,6 @@ h2 {
   transform: scale(1.1);
   fill: #005582; /* darker LinkedIn blue */
 }
-
-
-
 
 /*--------------------------------------------------------------
 # Portfolio Details Section
@@ -1229,14 +1226,20 @@ h2 {
   position: relative;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: color-mix(in srgb, var(--default-color), transparent 85%);
   opacity: 1;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet-active {
   background-color: var(--accent-color);
 }
 
@@ -1251,7 +1254,8 @@ h2 {
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 .portfolio-details .portfolio-info ul {
@@ -1260,7 +1264,7 @@ h2 {
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li+li {
+.portfolio-details .portfolio-info ul li + li {
   margin-top: 10px;
 }
 
