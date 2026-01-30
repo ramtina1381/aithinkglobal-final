@@ -1,9 +1,9 @@
 import React from "react";
 import "./HomePage.css";
-import { FaLinkedin } from 'react-icons/fa';
+import { FaLinkedin } from "react-icons/fa";
 import { Outlet, Link } from "react-router-dom";
 import { useAuth } from "../../context/ContextProvider";
-// import heroImg from './assets/img/1.png'; 
+// import heroImg from './assets/img/1.png';
 
 // function Hero() {
 //   return (
@@ -26,7 +26,9 @@ function Hero() {
         <div className="hero-text">
           <h1>Intelligent Solutions</h1>
           <h1>Smarter Business</h1>
-          <a href="#contact" className="btn-get-started">Get Started</a>
+          <a href="#contact" className="btn-get-started">
+            Get Started
+          </a>
         </div>
         <div className="hero-image-wrapper">
           <img src="/assets/img/1.png" className="hero-image" alt="Hero" />
@@ -52,7 +54,8 @@ function Mission() {
             </h4>
             <p className="description">
               Our mission is to thoughtfully build AI powered software and
-              solutions that advance industries and enrich lives with precision and purpose.
+              solutions that advance industries and enrich lives with precision
+              and purpose.
             </p>
           </div>
         </div>
@@ -62,13 +65,38 @@ function Mission() {
   );
 }
 
+// function Services() {
+//   const services = [
+//     "Cloud and Infrastructure",
+//     "App development and Quality Engineering",
+//     "Data Automation and AI",
+//     "Consulting Services",
+//   ];
 
+//   return (
+//     <section id="services" className="services-section">
+//       <div className="services-container">
+//         <h2 className="services-title">Our Services</h2>
+//         <div className="services-grid">
+//           {services.map((service, idx) => (
+//             <div key={idx} className={`service-box service-box-${idx}`}>
+//               <p>{service}</p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 function Services() {
   const services = [
-    "Cloud and Infrastructure",
-    "App development and Quality Engineering",
-    "Data Automation and AI",
-    "Consulting Services",
+    { name: "Cloud and Infrastructure", path: "/assets/img/cloud.png" },
+    {
+      name: "App development and Quality Engineering",
+      path: "/assets/img/app.png",
+    },
+    { name: "Data Automation and AI", path: "/assets/img/data-automation.png" },
+    { name: "Consulting Services", path: "/assets/img/consulting.png" },
   ];
 
   return (
@@ -77,8 +105,16 @@ function Services() {
         <h2 className="services-title">Our Services</h2>
         <div className="services-grid">
           {services.map((service, idx) => (
-            <div key={idx} className={`service-box service-box-${idx}`}>
-              <p>{service}</p>
+            <div
+              key={idx}
+              className="service-box"
+              style={{
+                backgroundImage: `url(${service.path})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <p>{service.name}</p>
             </div>
           ))}
         </div>
@@ -98,17 +134,30 @@ function Leadership() {
           <div className="member-info">
             <h4>Zohreh Sanaei (PhD)</h4>
             <span>Chief Experience Officer</span>
-            <div className="social"> 
-              <a href="https://www.linkedin.com/in/zohrehsanaei/"><FaLinkedin size={24} color="#0077B5" /></a>
+            <div className="social">
+              <a href="https://www.linkedin.com/in/zohrehsanaei/">
+                <FaLinkedin size={24} color="#0077B5" />
+              </a>
             </div>
             <p>
-              Zohreh Sanaei is a visionary leader in AI and data science, dedicated to transforming complex challenges into seamless, data-driven solutions. With a PhD in Computer Science and over 12 years of experience, she specializes in driving AI innovation that enhances business performance and customer experiences.
+              Zohreh Sanaei is a visionary leader in AI and data science,
+              dedicated to transforming complex challenges into seamless,
+              data-driven solutions. With a PhD in Computer Science and over 12
+              years of experience, she specializes in driving AI innovation that
+              enhances business performance and customer experiences.
             </p>
             <p>
-              As Chief Experience Officer at AIThink LTD, Zohreh focuses on bridging the gap between AI technology and real-world applications. She simplifies complex AI/ML models into actionable strategies, ensuring businesses thrive with AI. Her leadership fosters innovation and guides teams to deliver measurable success.
+              As Chief Experience Officer at AIThink LTD, Zohreh focuses on
+              bridging the gap between AI technology and real-world
+              applications. She simplifies complex AI/ML models into actionable
+              strategies, ensuring businesses thrive with AI. Her leadership
+              fosters innovation and guides teams to deliver measurable success.
             </p>
             <p>
-              Passionate about making AI accessible and impactful, Zohreh is committed to helping organizations harness the full potential of artificial intelligence—creating smarter, more efficient, and customer-centric experiences.
+              Passionate about making AI accessible and impactful, Zohreh is
+              committed to helping organizations harness the full potential of
+              artificial intelligence—creating smarter, more efficient, and
+              customer-centric experiences.
             </p>
           </div>
         </div>
@@ -118,16 +167,28 @@ function Leadership() {
             <h4>Saeid Abolfazli (PhD)</h4>
             <span>Co-Founder</span>
             <div className="social">
-              <a href="https://www.linkedin.com/in/saeidabolfazli/"><FaLinkedin size={24} color="#0077B5" /></a>
+              <a href="https://www.linkedin.com/in/saeidabolfazli/">
+                <FaLinkedin size={24} color="#0077B5" />
+              </a>
             </div>
             <p>
-              Saeid is an AI strategist, educator, and innovator dedicated to making AI practical and transformative for businesses. He leverages deep expertise in AI/ML, data science, and technology leadership to help organizations integrate AI solutions that drive efficiency and growth.
+              Saeid is an AI strategist, educator, and innovator dedicated to
+              making AI practical and transformative for businesses. He
+              leverages deep expertise in AI/ML, data science, and technology
+              leadership to help organizations integrate AI solutions that drive
+              efficiency and growth.
             </p>
             <p>
-              He has been teaching AI and machine learning at the University of Toronto and the Vector Institute for AI, shaping the next generation of AI talent. His work bridges cutting-edge research with real-world applications to ensure AI is not just innovative but also ethical and impactful.
+              He has been teaching AI and machine learning at the University of
+              Toronto and the Vector Institute for AI, shaping the next
+              generation of AI talent. His work bridges cutting-edge research
+              with real-world applications to ensure AI is not just innovative
+              but also ethical and impactful.
             </p>
             <p>
-              Saeid empowers businesses with AI-driven strategies that enhance decision-making, streamline operations, and create lasting value in an evolving digital landscape.
+              Saeid empowers businesses with AI-driven strategies that enhance
+              decision-making, streamline operations, and create lasting value
+              in an evolving digital landscape.
             </p>
           </div>
         </div>
@@ -176,42 +237,57 @@ function Locations() {
   );
 }
 
-
-
-
 function RoleBasedBanner() {
   const { user, role, loading } = useAuth();
 
   if (loading) return null;
 
-  if (user && role === 'admin') {
+  if (user && role === "admin") {
     return (
-      <div style={{ 
-        backgroundColor: '#dc3545', 
-        color: 'white', 
-        padding: '1rem', 
-        textAlign: 'center',
-        borderBottom: '2px solid #c82333'
-      }}>
-        <strong>Welcome Admin!</strong> You're viewing the public site. 
-        <Link to="/admin" style={{ color: 'white', marginLeft: '1rem', textDecoration: 'underline' }}>
+      <div
+        style={{
+          backgroundColor: "#dc3545",
+          color: "white",
+          padding: "1rem",
+          textAlign: "center",
+          borderBottom: "2px solid #c82333",
+        }}
+      >
+        <strong>Welcome Admin!</strong> You're viewing the public site.
+        <Link
+          to="/admin"
+          style={{
+            color: "white",
+            marginLeft: "1rem",
+            textDecoration: "underline",
+          }}
+        >
           Go to Admin Dashboard →
         </Link>
       </div>
     );
   }
 
-  if (user && role === 'user') {
+  if (user && role === "user") {
     return (
-      <div style={{ 
-        backgroundColor: '#1976d2', 
-        color: 'white', 
-        padding: '1rem', 
-        textAlign: 'center',
-        borderBottom: '2px solid #1565c0'
-      }}>
-        <strong>Welcome back!</strong> You're viewing the public site. 
-        <Link to="/user" style={{ color: 'white', marginLeft: '1rem', textDecoration: 'underline' }}>
+      <div
+        style={{
+          backgroundColor: "#1976d2",
+          color: "white",
+          padding: "1rem",
+          textAlign: "center",
+          borderBottom: "2px solid #1565c0",
+        }}
+      >
+        <strong>Welcome back!</strong> You're viewing the public site.
+        <Link
+          to="/user"
+          style={{
+            color: "white",
+            marginLeft: "1rem",
+            textDecoration: "underline",
+          }}
+        >
           Go to Your Dashboard →
         </Link>
       </div>
