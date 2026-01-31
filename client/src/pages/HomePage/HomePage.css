@@ -165,16 +165,42 @@
   font-size: 1rem;
   margin-bottom: 20px;
 }
+
+/* Hero Section */
+.hero-section {
+  padding: 60px 0;
+  margin-top: 10px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.hero-image-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* General styling for the hero section */
 .hero.section {
   padding: 0 0;
   /* background-color: #f4f4f4; Light background color */
-}
-
-.hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
 }
 
 /* Row styling for layout */
@@ -190,36 +216,18 @@
 }
 
 /* Hero text section */
-/* Hero Section Styling */
-.hero {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  margin-top: 90px;
-}
-
-.hero-overlay {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
 .hero-text {
   flex: 1;
-  padding: clamp(1rem, 5vw, 3rem);
+  padding-left: 20px;
   color: #1795ab;
   font-family: Verdana, sans-serif;
   text-align: left;
+  min-width: 0;
 }
 
 .hero-text h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 10px;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin: 0 0 15px 0;
   text-align: left;
 }
 
@@ -241,28 +249,33 @@
 
 .hero-image {
   position: relative;
-  top: 0;
-  right: 0;
-  width: 50%;
+  width: 100%;
   height: auto;
   aspect-ratio: 4 / 3;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center right;
+  object-fit: contain;
   z-index: 0;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .hero {
+  .hero-section {
+    min-height: auto;
+    margin-top: 90px;
+  }
+
+  .hero-container {
     flex-direction: column;
-    text-align: center;
-    background-position: center;
+    gap: 20px;
   }
 
   .hero-text {
     padding-left: 1rem;
     padding-right: 1rem;
+    text-align: center;
+  }
+
+  .hero-image-wrapper {
+    width: 100%;
   }
 }
 
