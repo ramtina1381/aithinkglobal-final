@@ -168,7 +168,7 @@
 
 /* Hero Section */
 .hero-section {
-  padding: 70px 0;
+  padding: 0;
   margin-top: 10px;
   min-height: auto;
   display: flex;
@@ -261,12 +261,12 @@
   .hero-section {
     min-height: auto;
     margin-top: 60px;
-    padding: 30px 0;
+    padding: 0;
   }
 
   .hero-container {
     gap: 10px;
-    padding: 0 10px;
+    padding: 0;
   }
   /* Putting another styling adjustment */
   .hero-text {
