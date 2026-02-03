@@ -2,6 +2,8 @@ import React from "react";
 import "./Contact.css";
 
 export default function Contact() {
+  const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5001";
+
   const showModal = () => {
     const modal = document.getElementById("thankYouModal");
     if (modal) modal.style.display = "flex";
@@ -25,7 +27,7 @@ export default function Contact() {
     };
 
     try {
-      const response = await fetch(`http://localhost:5001/api/send-email`, {
+      const response = await fetch(`${API_BASE}/api/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
