@@ -16,6 +16,7 @@ export default function Contact() {
 
   //Just a test
   // Adding this line to update the code
+  // adjust this code
   const handleSubmit = async (e) => {
     e.preventDefault();
 
