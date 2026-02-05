@@ -6,14 +6,16 @@ import { jobs } from "../Careers/jobs";
 export default function UserCareers() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const navigate = useNavigate();
-  const filteredJobs = jobs.filter(job => {
-    const matchesSearch = job.title.toLowerCase().includes(search.toLowerCase());
+  const filteredJobs = jobs.filter((job) => {
+    const matchesSearch = job.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
     const matchesCategory = category === "All" || job.category === category;
     return matchesSearch && matchesCategory;
   });
@@ -28,11 +30,13 @@ export default function UserCareers() {
             Be part of a forward-thinking team where innovation, teamwork, and
             growth matter. Explore opportunities and shape the future with us.
           </p>
-          <div style={{ marginBottom: '1rem', padding: '0.5rem', backgroundColor: '#e3f2fd', border: '1px solid #bbdefb', borderRadius: '4px' }}>
+          {/* <div style={{ marginBottom: '1rem', padding: '0.5rem', backgroundColor: '#e3f2fd', border: '1px solid #bbdefb', borderRadius: '4px' }}>
             <small>User Portal - Browse and apply for positions</small>
-          </div>
+          </div> */}
           <div className="careers-buttons">
-            <button className="btn-primary"><a href="#careers">Join the Team</a></button>
+            <button className="btn-primary">
+              <a href="#careers">Join the Team</a>
+            </button>
             <button className="btn-outline">Contact</button>
           </div>
         </div>
@@ -48,7 +52,9 @@ export default function UserCareers() {
           </div>
           <div className="benefit-card">
             <h3>🔒 Secured Future</h3>
-            <p>We provide stability and growth opportunities for your career.</p>
+            <p>
+              We provide stability and growth opportunities for your career.
+            </p>
           </div>
           <div className="benefit-card">
             <h3>📚 Learning Opportunity</h3>
@@ -76,7 +82,10 @@ export default function UserCareers() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
             <option value="All">All Categories</option>
             <option value="Engineering">Engineering</option>
             <option value="Support">Support</option>
@@ -90,7 +99,7 @@ export default function UserCareers() {
           {filteredJobs.map((job, index) => (
             <div key={index} className="job-card">
               <h3 className="job-title">{job.title}</h3>
-              
+
               <div className="job-info">
                 <div className="job-field">
                   <span className="label">Category</span>
@@ -109,7 +118,11 @@ export default function UserCareers() {
               </div>
               <button
                 className="apply-btn"
-                onClick={() => navigate(`/user/careers/${job.slug || job.title.toLowerCase().replace(/\s+/g, "-")}`)}
+                onClick={() =>
+                  navigate(
+                    `/user/careers/${job.slug || job.title.toLowerCase().replace(/\s+/g, "-")}`,
+                  )
+                }
                 aria-label={`View ${job.title} details`}
               >
                 Apply Now →

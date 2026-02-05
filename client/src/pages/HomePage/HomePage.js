@@ -3,22 +3,7 @@ import "./HomePage.css";
 import { FaLinkedin } from "react-icons/fa";
 import { Outlet, Link } from "react-router-dom";
 import { useAuth } from "../../context/ContextProvider";
-// import heroImg from './assets/img/1.png';
 
-// function Hero() {
-//   return (
-//     <section className="hero">
-//       <div className="hero-text">
-//         <h1>Intelligent Solutions</h1>
-//         <h1>Smarter Business</h1>
-//         <a href="#contact" className="btn-get-started">
-//           Get Started
-//         </a>
-//       </div>
-//       <img src="/assets/img/1.png" className="hero-image"  alt="Hero Image" />
-//     </section>
-//   );
-// }
 function Hero() {
   return (
     <section className="hero-section">
