@@ -14,6 +14,7 @@ export default function Header() {
   const mobileNavToggleBtnRef = useRef(null); // Ref for the mobile nav toggle button
   const navigate = useNavigate();
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const profileMenuRef = useRef(null);
 
   // Use the auth context instead of local state
   const { user, role, loading } = useAuth();
@@ -153,6 +154,33 @@ export default function Header() {
     };
   }, [location.pathname]); // Re-run if path changes (e.g., navigating directly)
 
+  // Close profile menu when clicking outside or pressing Escape
+  useEffect(() => {
+    function handleOutsideClick(e) {
+      if (
+        profileMenuOpen &&
+        profileMenuRef.current &&
+        !profileMenuRef.current.contains(e.target)
+      ) {
+        setProfileMenuOpen(false);
+      }
+    }
+
+    function handleKeydown(e) {
+      if (e.key === "Escape") setProfileMenuOpen(false);
+    }
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick);
+    document.addEventListener("keydown", handleKeydown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+      document.removeEventListener("keydown", handleKeydown);
+    };
+  }, [profileMenuOpen]);
+
   return (
     <header
       ref={headerRef}
@@ -243,7 +271,7 @@ export default function Header() {
                     Careers
                   </Link>
                 </li>
-                <li className="profile-menu">
+                <li className="profile-menu" ref={profileMenuRef}>
                   <button onClick={handleProfileClick} className="profile-btn">
                     Admin {profileMenuOpen ? "▲" : "▼"}
                   </button>
@@ -304,7 +332,7 @@ export default function Header() {
                     Careers
                   </Link>
                 </li>
-                <li className="profile-menu">
+                <li className="profile-menu" ref={profileMenuRef}>
                   <button onClick={handleProfileClick} className="profile-btn">
                     Profile {profileMenuOpen ? "▲" : "▼"}
                   </button>
@@ -354,7 +382,7 @@ export default function Header() {
                     Careers
                   </Link>
                 </li>
-                <li className="profile-menu">
+                <li className="profile-menu" ref={profileMenuRef}>
                   <button onClick={handleProfileClick} className="profile-btn">
                     User {profileMenuOpen ? "▲" : "▼"}
                   </button>

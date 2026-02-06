@@ -62,12 +62,38 @@ function Mission() {
   );
 }
 
+// function Services() {
+//   const services = [
+//     "Cloud and Infrastructure",
+//     "App development and Quality Engineering",
+//     "Data Automation and AI",
+//     "Consulting Services",
+//   ];
+
+//   return (
+//     <section id="services" className="services-section">
+//       <div className="services-container">
+//         <h2 className="services-title">Our Services</h2>
+//         <div className="services-grid">
+//           {services.map((service, idx) => (
+//             <div key={idx} className={`service-box service-box-${idx}`}>
+//               <p>{service}</p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 function Services() {
   const services = [
-    "Cloud and Infrastructure",
-    "App development and Quality Engineering",
-    "Data Automation and AI",
-    "Consulting Services",
+    { name: "Cloud and Infrastructure", path: "/assets/img/cloud.png" },
+    {
+      name: "App development and Quality Engineering",
+      path: "/assets/img/app.png",
+    },
+    { name: "Data Automation and AI", path: "/assets/img/data-automation.png" },
+    { name: "Consulting Services", path: "/assets/img/consulting.png" },
   ];
 
   return (
@@ -76,8 +102,16 @@ function Services() {
         <h2 className="services-title">Our Services</h2>
         <div className="services-grid">
           {services.map((service, idx) => (
-            <div key={idx} className={`service-box service-box-${idx}`}>
-              <p>{service}</p>
+            <div
+              key={idx}
+              className="service-box"
+              style={{
+                backgroundImage: `url(${service.path})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <p>{service.name}</p>
             </div>
           ))}
         </div>
