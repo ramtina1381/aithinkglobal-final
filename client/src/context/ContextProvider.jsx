@@ -4,7 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../components/firebase";
 
 const AuthContext = createContext({ user: null, role: null, loading: true });
-const INACTIVITY_TIMEOUT = 1 * 10 * 1000; // 10 minutes in milliseconds
+const INACTIVITY_TIMEOUT = 10 * 60 * 1000; // 10 minutes in milliseconds
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
