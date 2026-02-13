@@ -233,7 +233,7 @@
 
 .btn-get-started {
   display: inline-block;
-  background: #33a18f;
+  background: var(--accent-color);
   color: white;
   padding: 12px 30px;
   text-decoration: none;
@@ -244,7 +244,7 @@
 }
 
 .btn-get-started:hover {
-  background: #2e8c7f;
+  background: #1795ab;
 }
 
 .hero-image {
