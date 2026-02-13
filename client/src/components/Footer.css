@@ -2,7 +2,7 @@
 .footer {
   background-color: #0f1e2e;
   color: #e0e0e0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Newsletter Section */
@@ -127,6 +127,117 @@
 .sent-message {
   display: none;
   color: green;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #0f1e2e;
+  font-size: 22px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.modal-body p {
+  margin: 10px 0;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.modal-body p:first-child {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1795ab;
+}
+
+.modal-footer {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+.modal-btn-confirm {
+  background-color: #1795ab;
+  color: #ffffff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.modal-btn-confirm:hover {
+  background-color: #127b91;
 }
 
 /* Footer Bottom */

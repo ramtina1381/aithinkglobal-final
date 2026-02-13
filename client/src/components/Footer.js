@@ -9,6 +9,7 @@ function Footer() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const validateEmail = (value) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -31,6 +32,7 @@ function Footer() {
         createdAt: serverTimestamp(),
       });
       setSent(true);
+      setShowModal(true);
       setEmail("");
     } catch (err) {
       console.error("Subscribe error:", err);
@@ -38,6 +40,11 @@ function Footer() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSent(false);
   };
 
   return (
@@ -125,6 +132,32 @@ function Footer() {
           &copy; 2025 <strong>AIThink Global</strong>. All rights reserved.
         </p>
       </div>
+
+      {/* Success Modal */}
+      {showModal && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Subscription Successful!</h3>
+              <button className="modal-close" onClick={closeModal}>
+                &times;
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>✓ Thank you for subscribing!</p>
+              <p>
+                You will now receive updates on new features, releases, and
+                community news.
+              </p>
+            </div>
+            <div className="modal-footer">
+              <button className="modal-btn-confirm" onClick={closeModal}>
+                Got it!
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 }
