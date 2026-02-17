@@ -162,12 +162,33 @@ export default function Contact() {
           <button className="modal-close" onClick={closeModal}>
             &times;
           </button>
-          <h2>Thank You!</h2>
-          <div className="modal-content">
-            <p>
-              We appreciate your message. Our team will get back to you shortly.
-            </p>
+          <div className="modal-success-icon">
+            <svg
+              width="64"
+              height="64"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="32" cy="32" r="30" stroke="#16a34a" strokeWidth="2" />
+              <path
+                d="M20 32L28 40L44 24"
+                stroke="#16a34a"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            </svg>
           </div>
+          <h2>Message Sent Successfully!</h2>
+            <p>
+              Thank you for reaching out to us. We appreciate your message and
+              will get back to you as soon as possible.
+            </p>
+          <button className="modal-action-button" onClick={closeModal}>
+            Got It
+          </button>
         </div>
       </div>
     </section>
