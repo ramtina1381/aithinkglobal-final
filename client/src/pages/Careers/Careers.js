@@ -46,6 +46,7 @@ const jobData = [
     deadline: "2025-09-15",
   },
 ];
+// Adjusted the query
 
 export default function CareersPage() {
   const [search, setSearch] = useState("");
