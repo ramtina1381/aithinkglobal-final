@@ -88,14 +88,14 @@ function Footer() {
           <div className="footer-column">
             <h4>Company</h4>
             <ul>
-              <li>
+              {/* <li>
                 <a href="#about">About</a>
-              </li>
+              </li> */}
               <li>
                 <Link to="careers">Careers</Link>
               </li>
               <li>
-                <a href="#contact">Contact</a>
+                <Link to="contact">Contact</Link>
               </li>
             </ul>
           </div>

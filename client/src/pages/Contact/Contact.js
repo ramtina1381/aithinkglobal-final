@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Contact.css";
 
 export default function Contact() {
@@ -13,6 +13,11 @@ export default function Contact() {
     const modal = document.getElementById("thankYouModal");
     if (modal) modal.style.display = "none";
   };
+
+  useEffect(() => {
+    // Ensure the contact page starts at the top when navigated to
+    window.scrollTo(0, 0);
+  }, []);
 
   //Just a test
   // Adding this line to update the code
@@ -182,10 +187,10 @@ export default function Contact() {
             </svg>
           </div>
           <h2>Message Sent Successfully!</h2>
-            <p>
-              Thank you for reaching out to us. We appreciate your message and
-              will get back to you as soon as possible.
-            </p>
+          <p>
+            Thank you for reaching out to us. We appreciate your message and
+            will get back to you as soon as possible.
+          </p>
           <button className="modal-action-button" onClick={closeModal}>
             Got It
           </button>
