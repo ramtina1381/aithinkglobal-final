@@ -108,6 +108,7 @@ function Services() {
   );
 }
 
+/*
 function Leadership() {
   return (
     <section id="team" className="leadership-section">
@@ -181,7 +182,7 @@ function Leadership() {
     </section>
   );
 }
-
+*/
 function Locations() {
   return (
     <section id="Locations" className="locations section">
@@ -291,7 +292,7 @@ export default function HomePage() {
         <Mission />
         <Services />
         {/* <BusinessTransformation /> */}
-        <Leadership />
+        {/* <Leadership /> */}
         <Locations />
         <Outlet />
       </main>
