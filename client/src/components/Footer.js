@@ -16,7 +16,7 @@ function Footer() {
   const validateEmail = (value) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   };
-
+  // Adjusting the
   const handleSubscribe = async (e) => {
     e.preventDefault();
     setError("");
