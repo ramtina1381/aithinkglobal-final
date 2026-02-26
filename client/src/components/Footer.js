@@ -26,7 +26,7 @@ function Footer() {
       setError("Please enter a valid email address.");
       return;
     }
-
+    // Another changeé
     setLoading(true);
     try {
       await addDoc(collection(db, "newsletterSubscribers"), {
