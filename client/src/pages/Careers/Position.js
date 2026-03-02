@@ -65,7 +65,7 @@ export default function Position() {
               <div><strong>Deadline:</strong> {job.deadline}</div>
             </div>
 
-            <button className="apply-cta" onClick={() => navigate("/contact")}>
+            <button className="apply-cta" onClick={() => navigate(`/careers/${job.slug}/apply`)}>
               Apply Now
             </button>
 

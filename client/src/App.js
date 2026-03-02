@@ -8,6 +8,7 @@ import RootLayout from './pages/Root';
 import Profile from './components/Profile';
 import CareersPage from './pages/Careers/Careers';
 import Position from './pages/Careers/Position';
+import ApplicationForm from './pages/Careers/ApplicationForm';
 import ProtectedRoute from './context/ProtectedRoute.jsx';
 import { AuthProvider } from './context/ContextProvider.jsx';
 import RoleRedirect from './context/RoleRedirect.jsx';
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       { path: 'profile', element: <Profile />},
       { path: 'careers', element: <CareersPage />},
       { path: 'careers/:slug', element: <Position /> },
+      { path: 'careers/:slug/apply', element: <ApplicationForm /> },
       { path: 'dashboard', element: <RoleRedirect /> },
       // User area
       {
