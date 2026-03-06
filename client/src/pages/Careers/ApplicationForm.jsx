@@ -41,6 +41,7 @@ export default function ApplicationForm() {
       </div>
     );
   }
+  // Adding another line
   //Adding requirement
   const handleInputChange = (e) => {
     const { name, value } = e.target;
