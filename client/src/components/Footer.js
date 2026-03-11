@@ -127,7 +127,7 @@ function Footer() {
           <div className="footer-column">
             <h4>Contact</h4>
             <p>
-              <strong>Email:</strong> contact@aithinkglobal.com
+              <strong>Email:</strong> saeid@aithinkglobal.com
             </p>
             <p>
               <strong>Phone:</strong> +1 416 316 0285
@@ -219,7 +219,7 @@ function Footer() {
               <p>
                 You have the right to request access to, or deletion of, your
                 personal information at any time. Contact us at{" "}
-                <strong>contact@aithinkglobal.com</strong> to exercise these
+                <strong>saeid@aithinkglobal.com</strong> to exercise these
                 rights.
               </p>
             </div>

@@ -221,14 +221,14 @@ export default function Header() {
                     Careers
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     to="/auth?mode=login"
                     className={location.pathname === "/auth" ? "active" : ""}
                   >
                     Login
                   </Link>
-                </li>
+                </li> */}
               </>
             ) : role === "admin" ? (
               // Admin navigation
@@ -332,7 +332,7 @@ export default function Header() {
                     Careers
                   </Link>
                 </li>
-                <li className="profile-menu" ref={profileMenuRef}>
+                {/* <li className="profile-menu" ref={profileMenuRef}>
                   <button onClick={handleProfileClick} className="profile-btn">
                     Profile {profileMenuOpen ? "▲" : "▼"}
                   </button>
@@ -353,7 +353,7 @@ export default function Header() {
                       </li>
                     </ul>
                   )}
-                </li>
+                </li> */}
               </>
             ) : (
               // Fallback for users without role
@@ -382,7 +382,7 @@ export default function Header() {
                     Careers
                   </Link>
                 </li>
-                <li className="profile-menu" ref={profileMenuRef}>
+                {/* <li className="profile-menu" ref={profileMenuRef}>
                   <button onClick={handleProfileClick} className="profile-btn">
                     User {profileMenuOpen ? "▲" : "▼"}
                   </button>
@@ -398,7 +398,7 @@ export default function Header() {
                       </li>
                     </ul>
                   )}
-                </li>
+                </li> */}
               </>
             )}
           </ul>
