@@ -123,7 +123,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-
+          {/* adjusting a code */}
           <div className="footer-column">
             <h4>Contact</h4>
             <p>
