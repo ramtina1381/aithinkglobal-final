@@ -139,6 +139,7 @@ function Footer() {
         </div>
       </div>
       {/* Made some changes */}
+      {/* make some other changes */}
       <div className="footer-bottom">
         <p>
           &copy; 2025 <strong>AIThink Global</strong>. All rights reserved.
