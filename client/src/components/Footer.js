@@ -124,6 +124,7 @@ function Footer() {
             </ul>
           </div>
           {/* adjusting a code */}
+          {/* adjusting a code */}
           <div className="footer-column">
             <h4>Contact</h4>
             <p>
