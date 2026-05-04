@@ -128,6 +128,7 @@ function Footer() {
           <div className="footer-column">
             <h4>Contact</h4>
             <p>
+              {/* adjusting the code further */}
               <strong>Email:</strong> saeid@aithinkglobal.com
             </p>
             <p>
